@@ -23,7 +23,7 @@ Query the Manhattan Distance between points P1 and P2 and round it to a scale of
 SELECT Round(Max(lat_n) - Min(lat_n) + Max(long_w) - Min(long_w), 4)
 FROM   station; 
 
-/* According to formula*/
+/* According to Euclidean Distance formula*/
 SELECT Round(Sqrt(Pow(Min(lat_n)-Max(lat_n), 2)
                   + Pow(Min(long_w)-Max(long_w), 2)), 4)
 FROM   station; 
