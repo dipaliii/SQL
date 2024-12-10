@@ -1,0 +1,29 @@
+/*Write a query to find the node type of Binary Tree ordered by the value of the node. Output one of the following for each node:
+
+Root: If node is root node.
+Leaf: If node is leaf node.
+Inner: If node is neither root nor leaf node.
+Sample Input
+N 1 3 6 9 2 8 5
+p 2 2 8 8 5 5 NULL
+Sample Output
+1 Leaf
+2 Inner
+3 Leaf
+5 Root
+6 Leaf
+8 Inner
+9 Leaf
+*/
+
+
+SELECT N,
+       CASE
+         WHEN P IS NULL THEN 'Root'
+         WHEN N NOT IN (SELECT P
+                        FROM   BST
+                        WHERE  P IS NOT NULL) THEN 'Leaf'
+         ELSE 'Inner'
+       END
+FROM   BST
+ORDER  BY N ASC; 
