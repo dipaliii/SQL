@@ -1,0 +1,12 @@
+/* Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's  key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
+Write a query calculating the amount of error (i.e.:  average monthly salaries), and round it up to the next integer. */
+
+SELECT Ceiling(Avg(salary) - 
+    -- 1. query for the salaries
+    -- 2. convert the salaries to char
+    -- 3. replace the zeroes with blank (or remove them)
+    -- 4. convert the salaries back to decimal or int
+    -- 5. get the average
+
+Avg(Cast(replace(cast(salary AS Char), "0", "")AS Decimal)))
+FROM employees;
