@@ -1,0 +1,15 @@
+/* We define an employee's total earnings to be their monthly Salary x months worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as 2 space-separated integers */
+
+SELECT Salary * Months AS Maxsalary,
+       Count(*) AS Countnum
+FROM Employee
+GROUP BY 1
+ORDER BY 1 DESC
+LIMIT 1
+
+
+/* Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than  38.7880 and less than 137.234 . Truncate your answer to 4 decimal places.*/
+
+SELECT Round(Sum(Lat_n), 4)
+FROM Station
+WHERE Lat_n BETWEEN 38.7880 AND 137.2345;
